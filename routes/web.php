@@ -30,6 +30,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::middleware('auth')->group(function (){
     Route::get('/myAds', 'AdController@getUserAds')->name('my-ads');
+
+
     Route::get('/createAd',function () {
         echo 'Создание объявления';
     })->name('create-ad');
