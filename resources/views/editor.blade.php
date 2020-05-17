@@ -93,6 +93,6 @@
 <!--            </div>-->
 <!--        </div>-->
 <!--    </div>-->
-<script src="{{ asset('js/main.js') }}" type="text/js"></script>
+<script src="{{ asset('js/main.js') }}"></script>
 </body>
 </html>

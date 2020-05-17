@@ -19,12 +19,12 @@ Route::post('form', 'FormController@store')->name('form.store');
 
 Route::get('/', 'AdController@getAllAds');
 
-Route::post('/test', 'PlaceController@test');
+Route::post('/fetchSchema', 'PlaceSchemaController@fetchSchema');
 Route::post('/getSchemaById', 'PlaceController@getSchemaById');
 
 Route::get('/editor', 'EditorController@index');
 
-Auth::routes();
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -45,4 +45,4 @@ Route::get('/ad/{id}', function ($id) {
     echo $id;
 });
 
-
+Auth::routes();

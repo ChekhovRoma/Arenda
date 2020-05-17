@@ -9,22 +9,7 @@ use App\Place;
 
 class PlaceController extends Controller
 {
-    public function test(Request $request)
-    {
-        $data = $request->post();
 
-        $schema = new PlaceSchema();
-        $schema->place_Id = 1;
-        //$fullSchema = base64_encode($data['fullSchema']);
-        $schema->full_schema = $data['fullSchema'];
-        $schema->paths = $data['paths'];
-        $schema->rooms = $data['rooms'];
-        $schema->width = (float)$data['width'];
-        $schema->height = (float)$data['height'];
-        $schema->save();
-
-        return response($request->post('height'));
-    }
 
     public function getSchemaById(Request $request)
     {
