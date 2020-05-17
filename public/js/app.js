@@ -49683,6 +49683,8 @@ module.exports = function(module) {
  */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+__webpack_require__(/*! ./events */ "./resources/js/events.js");
+
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /**
  * The following block of code may be used to automatically register your
@@ -49821,6 +49823,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/events.js":
+/*!********************************!*\
+  !*** ./resources/js/events.js ***!
+  \********************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+console.log(jquery__WEBPACK_IMPORTED_MODULE_0___default()('body'));
+
+/***/ }),
+
 /***/ "./resources/sass/app.scss":
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
@@ -49839,8 +49857,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Arenda\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\Arenda\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/sevak/PhpstormProjects/Arenda/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/sevak/PhpstormProjects/Arenda/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

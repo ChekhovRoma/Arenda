@@ -1,100 +1,59 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+@extends('layouts.app')
+@section('content')
+<div class="container">
+        <form class="mb-3 p-3 border border-info" method='post' action="{{route('filter')}}">
+            <div class="row justify-content-center">
+                <input type="text" name="name" class="col-10 form-control" placeholder="Вводите название помещения здесь">
+                <div class="col-1 dropdown">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-outline-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Ещё
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <button class="dropdown-item" type="button">Another action</button>
+                            <button class="dropdown-item" type="button">Something else here</button>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <div class="row m-2 ml-3">
+                <div class="col-4">
+                    <label for="city" class="col-form-label">Город: </label>
+                    <select id="city" name='city' class="form-control-sm">
+                        <option value="Симферополь">Симферополь</option>
+                        <option value="Севастополь">Севастополь</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <input type="submit" value="Поиск" class="btn btn-primary col-4">
+            </div>
+        </form>
+    <div class="row justify-content-center">
+        @foreach($ads as $ad)
+            <div class="card ml-2 mr-2" style="width: 18rem;">
+                <img class="card-img-top" src="https://shopandmall.ru/foto/logo/gb_653aaab2d08dc4ca7af2a44f1efd29c4.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h3 class="card-title">{{ $ad->place->name }}</h3>
+                    <p class="card-text">{{ $ad->place->description }}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Адрес: {{ $ad->place->address }}</li>
+                    <li class="list-group-item">
+                        <a href = 'tel:{{ $ad->place->phone }}'></a>Телефон: {{ $ad->place->phone }}</li>
+                    <li class="list-group-item">Время работы: {{ $ad->place->open_at }} - {{ $ad->place->closed_at }}</li>
+                </ul>
+                <div class="card-body">
+                    <a href="{{ 'ad/'.$ad->id }}" class="btn btn-primary card-link">Подробнее</a>
+                </div>
+            </div>
+        @endforeach
+        <div class="container mt-3">
+            <div class="row justify-content-center">
+                {{ $ads->links() }}
+            </div>
         </div>
-    </body>
-</html>
+
+    </div>
+</div>
+@endsection
