@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Редактор схемы</title>
-
 </head>
 <body>
+
+
 <div id="helper" class="alert alert-success" role="alert">
     <!--        <button type="button" class="close" data-dismiss="alert" aria-label="Close">-->
     <!--            <span aria-hidden="true">&times;</span>-->
@@ -93,6 +94,10 @@
 <!--            </div>-->
 <!--        </div>-->
 <!--    </div>-->
-<script src="{{ asset('js/main.js') }}" type="text/js"></script>
+
+
+
 </body>
+<script src="{{ asset('js/main.js') }}" ></script>
 </html>
+
