@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Редактор схемы</title>
-
 </head>
 <body>
+
+
 <div id="helper" class="alert alert-success" role="alert">
     <!--        <button type="button" class="close" data-dismiss="alert" aria-label="Close">-->
     <!--            <span aria-hidden="true">&times;</span>-->
@@ -22,6 +23,7 @@
                 <button id="nextStage" class="btn btn-primary mt-2 col-12">Далее</button>
                 <button id="previousStage" class="btn btn-warning mt-2 col-12">Назад</button>
                 <button id="eraserBtn" class="btn btn-warning mt-2 col-12">Стерка</button>
+                <button id="postSchemaBtn" class="btn btn-warning mt-2 col-12">Сохранить в бд</button>
                 <!--                    <a href="#" class="btn btn-info text-align-bottom mt-2 col-12" onclick="app.lines.activate(); return false;">Lines</a>-->
                 <!--                    <a href="#" onclick="app.rooms.activate(); return false;">Lines</a> <br>-->
                 <button id="deleteProgressBtn" class="btn btn-danger text-align-bottom mt-5 col-12">Новая схема</button>
@@ -93,6 +95,8 @@
 <!--            </div>-->
 <!--        </div>-->
 <!--    </div>-->
-<script src="{{ asset('js/main.js') }}"></script>
+
+<script src="{{ asset('js/main.js') }}" ></script>
 </body>
 </html>
+
