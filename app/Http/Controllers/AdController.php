@@ -21,6 +21,4 @@ class AdController extends Controller
         $ads = User::find($id)->ads;
         return view('user.ads', compact('ads', $ads));
     }
-
-
 }

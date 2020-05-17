@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    @if(!$ads)
+    @if(count($ads) == 0)
         <div class="container justify-content-center d-flex">
             <div class="row justify-content-center">
                 <h2 class="col-9 mb-5 text-center">Похоже, что у вас нет объявлений</h2>
