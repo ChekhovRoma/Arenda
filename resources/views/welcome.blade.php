@@ -49,6 +49,23 @@
                     </div>
                 </div>
             </div>
+{{--            <div class="card ml-2 mr-2" style="width: 18rem;">--}}
+{{--                <img class="card-img-top" src="https://127.0.0.1//logo/gb_653aaab2d08dc4ca7af2a44f1efd29c4.jpg" alt="Card image cap">--}}
+{{--                <div class="card-body">--}}
+{{--                    <h3 class="card-title">{{ $ad->place->name }}</h3>--}}
+{{--                    <p class="card-text">{{ $ad->place->description }}</p>--}}
+{{--                </div>--}}
+{{--                <ul class="list-group list-group-flush">--}}
+{{--                    <li class="list-group-item">Адрес: {{ $ad->place->address }}</li>--}}
+{{--                    <li class="list-group-item">--}}
+{{--                        <a href = 'tel:{{ $ad->place->phone }}'></a>Телефон: {{ $ad->place->phone }}</li>--}}
+{{--                    <li class="list-group-item">Время работы: {{ $ad->place->open_at }} - {{ $ad->place->closed_at }}</li>--}}
+{{--                </ul>--}}
+{{--                <div class="card-body">--}}
+{{--                    <a href="{{ 'ad/'.$ad->id }}" class="btn btn-primary card-link">Подробнее</a>--}}
+{{-->>>>>>> 928d9e5868b66a4da646a933f4a82cbcdf68ec7b--}}
+{{--                </div>--}}
+{{--            </div>--}}
 
         @endforeach
         <div class="container mt-3">

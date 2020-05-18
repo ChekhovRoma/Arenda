@@ -32,12 +32,12 @@ Route::middleware('auth')->group(function (){
     Route::get('/myAds', 'AdController@getUserAds')->name('my-ads');
 
 
-    Route::get('/createAd',function () {
-        echo 'Создание объявления';
-    })->name('create-ad');
+    Route::get('/createPlace','PlaceController@addPlace');
+    Route::post('/savePlace','PlaceController@savePlace')->name('place.save');
+    Route::get('place/{id}', 'PlaceController@getPlace');
 });
 Route::post('/filter', function (){
-    echo 'Romchik detected';
+    echo 'filter search';
 })->name('filter');
 
 

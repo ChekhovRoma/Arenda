@@ -19,6 +19,8 @@ class CreatePlacesTable extends Migration
             $table->string('name');
             $table->string('city');
             $table->string('address');
+            $table->unsignedBigInteger('owner_id');
+            $table->foreign('owner_id')->references('id')->on('users');
             $table->unsignedBigInteger('place_type_id');
             $table->foreign('place_type_id')->references('id')->on('place_types');
             $table->integer('floors_num')->default(1);

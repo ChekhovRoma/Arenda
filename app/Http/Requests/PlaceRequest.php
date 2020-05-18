@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 
 
-class FieldRequest extends FormRequest
+class PlaceRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,10 +25,14 @@ class FieldRequest extends FormRequest
     public function rules()
     {
         return [
-            'item_name' => 'bail|required|max:255',
-            'sku_no' => 'required|alpha_num',
-            'price' => 'required|numeric',
-            'email'=>'required|email'
+            'name' => 'bail|required|max:255',
+            'city' => 'bail|required|max:255',
+            'address' => 'bail|required|max:255',
+            'floors_num' => 'bail|required|integer|min:1',
+            'rooms_num' => 'bail|required|integer|min:1',
+            'phone' => 'bail|required|regex:/^(\+7)[0-9]{10}$/',
+            'description' => 'required',
+            'photos[]' => 'mimes:jpeg,bmp,png'
         ];
     }
 
