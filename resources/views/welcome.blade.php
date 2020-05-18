@@ -32,7 +32,7 @@
     <div class="row justify-content-center">
         @foreach($ads as $ad)
             <div class="card ml-2 mr-2" style="width: 18rem;">
-                <img class="card-img-top" src="https://shopandmall.ru/foto/logo/gb_653aaab2d08dc4ca7af2a44f1efd29c4.jpg" alt="Card image cap">
+                <img class="card-img-top" src="https://127.0.0.1//logo/gb_653aaab2d08dc4ca7af2a44f1efd29c4.jpg" alt="Card image cap">
                 <div class="card-body">
                     <h3 class="card-title">{{ $ad->place->name }}</h3>
                     <p class="card-text">{{ $ad->place->description }}</p>
