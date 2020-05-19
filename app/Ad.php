@@ -10,7 +10,7 @@ class Ad extends Model
         return $this->belongsTo('App\User');
     }
 
-    public function place () {
-        return $this->belongsTo('App\Place', 'place_id');
+    public function room () {
+        return $this->belongsTo('App\Room');
     }
 }

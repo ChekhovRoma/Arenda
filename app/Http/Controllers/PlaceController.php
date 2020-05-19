@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\PlaceSchema;
+use App\PlaceType;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Http\FormRequest;
 use App\Http\Requests\PlaceRequest;
@@ -39,7 +40,8 @@ class PlaceController extends Controller
 
     public function addPlace()
     {
-        return view('addPlace');
+        $placeTypes = PlaceType::all();
+        return view('addPlace', compact('placeTypes'));
     }
 
     public function savePlace(PlaceRequest $request)

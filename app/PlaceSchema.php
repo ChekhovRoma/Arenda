@@ -9,4 +9,8 @@ class PlaceSchema extends Model
     protected $fillable = array('place_id', 'full_schema', 'rooms', 'paths', 'width', 'height');
 
     protected $guarded = array('id');
+
+    public function place () {
+        return $this->belongsTo('App\Place');
+    }
 }
