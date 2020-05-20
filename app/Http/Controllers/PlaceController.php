@@ -22,14 +22,13 @@ class PlaceController extends Controller
         return response(json_encode($place[0]));
     }
 
-    public function getSchemaById(Request $request) // убрать в плейссхема контроллер?
+    public function getSchemaById (Request $request) // убрать в плейссхема контроллер?
     {
-        $placeId = $data = $request->post('placeId');
+        $placeId = $request->post('placeId');
 
-        $schema = PlaceSchema::where('place_id', $placeId)
-            ->get();
+        $schema = PlaceSchema::find($placeId);
 
-        return response(json_encode($schema[0]));
+        return response(json_encode($schema));
     }
 
     public function filter (Request $request){
@@ -60,7 +59,7 @@ class PlaceController extends Controller
         $place->rooms_num =  (integer) $data['rooms_num'];
         $place->phone =   $data['phone'];
         $place->description =   $data['description'];
-        $place->open_at =   '13:00:00';
+        $place->open_at = '13:00:00';
         $place->closed_at =   '14:00:00';
 
         if($request->hasFile('photos')){
@@ -72,10 +71,11 @@ class PlaceController extends Controller
                 //$photos[] = $newFileName;
                 array_push($photos, $newFileName);
             }
-            $place->photos = json_encode( $photos);
+            $place->photos = json_encode($photos);
         }
 
         $place->save();
-        var_dump("Удачно");
+        return redirect('/editor/'.$place->id);
     }
+
 }

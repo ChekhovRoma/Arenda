@@ -22,7 +22,7 @@ Route::get('/', 'AdController@getAllAds');
 Route::post('/fetchSchema', 'PlaceSchemaController@fetchSchema');
 Route::post('/getSchemaById', 'PlaceController@getSchemaById');
 
-Route::get('/editor', 'EditorController@index');
+
 
 
 
@@ -35,6 +35,9 @@ Route::middleware('auth')->group(function (){
     Route::get('/createPlace','PlaceController@addPlace');
     Route::post('/savePlace','PlaceController@savePlace')->name('place.save');
     Route::get('place/{id}', 'PlaceController@getPlace');
+    Route::get('/editor/{id}', 'EditorController@index');
+    Route::get('/addRooms/{id}', 'RoomController@addRooms');
+    Route::post('/saveRoom', 'RoomController@saveRoom');
 });
 Route::post('/filter', function (){
     echo 'filter search';

@@ -13,4 +13,8 @@ class Room extends Model
     public function place () {
         return $this->belongsTo('App\Place');
     }
+
+    public function communications () {
+        return $this->belongsToMany('App\Communications');
+    }
 }

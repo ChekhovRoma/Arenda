@@ -31,7 +31,6 @@ class PlaceRequest extends FormRequest
             'floors_num' => 'bail|required|integer|min:1',
             'rooms_num' => 'bail|required|integer|min:1',
             'phone' => 'bail|required|regex:/^(\+7)[0-9]{10}$/',
-            'description' => 'required',
             'photos[]' => 'mimes:jpeg,bmp,png'
         ];
     }

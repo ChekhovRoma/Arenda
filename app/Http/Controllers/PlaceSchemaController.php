@@ -10,10 +10,11 @@ class PlaceSchemaController extends Controller
     public function fetchSchema(Request $request)
     {
         $data = $request->post();
-
-        $schema = new PlaceSchema();
-        $schema->place_Id = 1;
-        //$fullSchema = base64_encode($data['fullSchema']);
+        $schema = PlaceSchema::where('place_id', $data['placeId'])->first();
+        if (!$schema){
+            $schema = new PlaceSchema();
+        }
+        $schema->place_Id = $data['placeId'];
         $schema->full_schema = $data['fullSchema'];
         $schema->paths = $data['paths'];
         $schema->rooms = $data['rooms'];
@@ -23,4 +24,6 @@ class PlaceSchemaController extends Controller
 
         return response($request->post('height'));
     }
+
+
 }

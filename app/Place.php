@@ -21,4 +21,8 @@ class Place extends Model
     public function placeType () {
         return $this->belongsTo('App\PlaceType');
     }
+
+    public function schema () {
+        return $this->hasOne('App\PlaceSchema');
+    }
 }
