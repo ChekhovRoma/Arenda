@@ -1,4 +1,5 @@
 import $ from 'jquery'
+import formValidator from 'jquery-validation'
 
 $(document).ready(function () {
    let rooms = $('path[id^=room]');
@@ -10,7 +11,7 @@ $(document).ready(function () {
       $('#roomCreator').modal('show');
    });
 
-   $('#roomFormSubmit').click(function () {
+   $('#roomFormSubmit').click(function (event) {
       let response = fetchRoom();
       console.log(response);
    });
@@ -45,4 +46,35 @@ $(document).ready(function () {
          console.log(reject);
       })
    }
+});
+// validation
+$(function() {
+   $("form[name='addRoom']").validate({
+      rules: {
+         area: {
+            required: true,
+            number: true
+         },
+         price: {
+            required: true,
+            number: true,
+            normalizer: function (value) {
+               return value.replace(/ /g,'');
+            }
+         }
+      },
+      messages: {
+         area: {
+            required: "Введите площадь",
+            number: "Некорректная площадь (Например: 24 или 25.6)"
+         },
+         price: {
+            required: "Введите стоимость аренды помещения (в месяц)",
+            number: "Некорректная стоимость"
+         },
+      },
+      submitHandler: function(form) {
+         console.log('Hello');
+      }
+   });
 });

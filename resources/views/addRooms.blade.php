@@ -29,6 +29,8 @@
                 <input type="hidden" value="{{ $schema->place_id }}" id="placeId">
                 <div class="modal-body">
                     <div class="container align-content-center align-self-center">
+                        <form name="addRoom">
+                         @csrf
                         <div class="form-group row justify-content-md-center" id="settings">
                                 <div class="form-group col-12 justify-content-center">
                                     <label for="name">Площадь в м2 <span style="color: red">*</span></label>
@@ -50,8 +52,9 @@
                                     <label for="photos">Фото :</label>
                                     <input type="file" class="form-control" name="photos[]" multiple />
                                 </div>
-                                <button id="roomFormSubmit" class="btn btn-primary ">Создать</button>
+                                <button type="submit" id="roomFormSubmit" class="btn btn-primary ">Создать</button>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>
