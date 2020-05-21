@@ -21,19 +21,19 @@
                     <form class="row col-sm-10 col-md-6 col-lg-4 justify-content-center" name="addPlace" method="post" enctype="multipart/form-data" action="{{ route('place.save') }}" >
                         <div class="form-group col-12 justify-content-center">
                             @csrf
-                            <label for="name">Название помещения:</label>
+                            <label for="name">Название помещения:<span style="color: red">*</span></label>
                             <input type="text" class="form-control" name="name"/>
                         </div>
                         <div class="form-group col-12">
-                            <label for="city">Город :</label>
-                            <input type="text" class="form-control " name="city"/>
+                            <label for="city">Город :<span style="color: red">*</span></label>
+                            <input type="text" class="form-control" name="city"/>
                         </div>
                         <div class="form-group col-12">
-                            <label for="address">Адрес :</label>
+                            <label for="address">Адрес :<span style="color: red">*</span></label>
                             <input type="text" class="form-control " name="address"/>
                         </div>
                         <div class="form-group col-12">
-                            <label for="place_type_id">Тип помещения :</label>
+                            <label for="place_type_id">Тип помещения :<span style="color: red">*</span></label>
                             <select name="place_type_id" class="form-control col-12">
                                 @foreach($placeTypes as $placeType)
                                     <option value="{{$placeType->id}}">{{$placeType->name}}</option>
@@ -41,15 +41,15 @@
                             </select>
                         </div>
                         <div class="form-group col-6">
-                            <label for="floor_num">Количество этажей :</label>
-                            <input type="number" class="form-control" name="floors_num"/>
+                            <label for="floor_num">Количество этажей :<span style="color: red">*</span></label>
+                            <input type="text" class="form-control" name="floors_num"/>
                         </div>
                         <div class="form-group col-6">
-                            <label for="rooms_num">Количество комнат :</label>
-                            <input type="number" class="form-control" name="rooms_num"/>
+                            <label for="rooms_num">Количество комнат :<span style="color: red">*</span></label>
+                            <input type="text" class="form-control" name="rooms_num"/>
                         </div>
                         <div class="form-group col-12">
-                            <label for="phone">Контактный телефон :</label>
+                            <label for="phone">Контактный телефон :<span style="color: red">*</span></label>
                             <input type="text" class="form-control" name="phone" placeholder="+7988888888"/>
                         </div>
                         <div class="form-group col-12">

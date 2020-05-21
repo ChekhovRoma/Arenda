@@ -52092,6 +52092,51 @@ jquery__WEBPACK_IMPORTED_MODULE_1___default()(function () {
       jquery__WEBPACK_IMPORTED_MODULE_1___default()('#roomCreator').modal('hide');
     }
   });
+
+  jquery__WEBPACK_IMPORTED_MODULE_1___default.a.validator.methods.email = function (value, element) {
+    return this.optional(element) || /[a-z]+@[a-z]+\.[a-z]+/.test(value);
+  };
+
+  jquery__WEBPACK_IMPORTED_MODULE_1___default()('form[name="addPlace"]').validate({
+    rules: {
+      name: {
+        required: true
+      },
+      address: {
+        required: true
+      },
+      phone: {
+        required: true
+      },
+      floors_num: {
+        required: true,
+        number: true
+      },
+      rooms_num: {
+        required: true,
+        number: true
+      }
+    },
+    messages: {
+      name: {
+        required: 'Название обязательно'
+      },
+      address: {
+        required: 'Адрес обязателен'
+      },
+      phone: {
+        required: 'Номер обязателен'
+      },
+      floors_num: {
+        required: 'Обязательное поле',
+        number: 'Введите число'
+      },
+      rooms_num: {
+        required: 'Обязательное поле',
+        number: 'Введите число'
+      }
+    }
+  });
 });
 
 /***/ }),
