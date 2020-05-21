@@ -51985,76 +51985,73 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
+var name;
+var roomCounter;
 jquery__WEBPACK_IMPORTED_MODULE_1___default()(document).ready(function () {
   var rooms = jquery__WEBPACK_IMPORTED_MODULE_1___default()('path[id^=room]');
-  var name;
+  var readyRooms = 0;
+  roomCounter = rooms.length;
+  console.log(roomCounter);
   rooms.attr('fill', 'red');
   rooms.click(function (event) {
-    jquery__WEBPACK_IMPORTED_MODULE_1___default()(this).attr('fill', 'yellow');
-    name = jquery__WEBPACK_IMPORTED_MODULE_1___default()(this).attr('id');
-    jquery__WEBPACK_IMPORTED_MODULE_1___default()('#roomCreator').modal('show');
-  });
-  jquery__WEBPACK_IMPORTED_MODULE_1___default()('#roomFormSubmit').click(function (event) {
-    var response = fetchRoom();
-    console.log(response);
-  });
+    var _this = this;
 
-  function fetchRoom() {
-    return _fetchRoom.apply(this, arguments);
-  }
+    if (jquery__WEBPACK_IMPORTED_MODULE_1___default()(this).attr('fill') === 'red') {
+      jquery__WEBPACK_IMPORTED_MODULE_1___default()(this).attr('fill', 'yellow');
+      name = jquery__WEBPACK_IMPORTED_MODULE_1___default()(this).attr('id');
+      jquery__WEBPACK_IMPORTED_MODULE_1___default()('#roomCreator').modal('show');
+      jquery__WEBPACK_IMPORTED_MODULE_1___default()('#roomCreator').on('hidden.bs.modal', function () {
+        jquery__WEBPACK_IMPORTED_MODULE_1___default()(_this).attr('fill', 'green');
+        readyRooms = jquery__WEBPACK_IMPORTED_MODULE_1___default()('path[fill="green"]').length;
 
-  function _fetchRoom() {
-    _fetchRoom = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-      var area, floor, price, description, placeId;
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              area = jquery__WEBPACK_IMPORTED_MODULE_1___default()('#roomArea').val();
-              floor = jquery__WEBPACK_IMPORTED_MODULE_1___default()('#floor').val();
-              price = jquery__WEBPACK_IMPORTED_MODULE_1___default()('#price').val();
-              description = jquery__WEBPACK_IMPORTED_MODULE_1___default()('#description').val();
-              placeId = jquery__WEBPACK_IMPORTED_MODULE_1___default()('#placeId').val();
-              console.log(area, floor, price, description, placeId);
-              console.log(name);
-              fetch('http://127.0.0.1:8000/saveRoom', {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                  'name': name,
-                  'placeId': placeId,
-                  'floor': floor,
-                  'price': price,
-                  'description': description,
-                  'area': area
-                })
-              }).then(function (response) {
-                return response.json();
-              }).then(function (body) {
-                console.log(body);
-              })["catch"](function (reject) {
-                console.log(reject);
-              });
-
-            case 8:
-            case "end":
-              return _context.stop();
-          }
+        if (readyRooms === roomCounter) {
+          console.log('все готово');
         }
-      }, _callee);
-    }));
-    return _fetchRoom.apply(this, arguments);
-  }
-}); // validation
+      });
+    }
+  });
+});
+
+function fetchRoom(_x) {
+  return _fetchRoom.apply(this, arguments);
+} // validation
+
+
+function _fetchRoom() {
+  _fetchRoom = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(data) {
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            fetch('/saveRoom', {
+              method: 'POST',
+              mode: "cors",
+              body: data
+            }).then(function (response) {
+              return response.json();
+            }).then(function (body) {
+              console.log(body);
+            });
+
+          case 1:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee);
+  }));
+  return _fetchRoom.apply(this, arguments);
+}
 
 jquery__WEBPACK_IMPORTED_MODULE_1___default()(function () {
   jquery__WEBPACK_IMPORTED_MODULE_1___default()("form[name='addRoom']").validate({
     rules: {
       area: {
         required: true,
-        number: true
+        number: true,
+        normalizer: function normalizer(value) {
+          return value.replace(/ /g, '');
+        }
       },
       price: {
         required: true,
@@ -52075,7 +52072,24 @@ jquery__WEBPACK_IMPORTED_MODULE_1___default()(function () {
       }
     },
     submitHandler: function submitHandler(form) {
-      console.log('Hello');
+      var formData = new FormData();
+      var fileList = jquery__WEBPACK_IMPORTED_MODULE_1___default()('#photos').get(0).files;
+      console.log(jquery__WEBPACK_IMPORTED_MODULE_1___default()('#photos').get(0).files);
+
+      if (fileList.length > 0) {
+        for (var i = 0; i < fileList.length; i++) {
+          formData.append('photos[]', fileList[i]);
+        }
+      }
+
+      formData.append('name', name);
+      formData.append('area', jquery__WEBPACK_IMPORTED_MODULE_1___default()("input[name='area']").val());
+      formData.append('placeId', jquery__WEBPACK_IMPORTED_MODULE_1___default()('#placeId').val());
+      formData.append('price', jquery__WEBPACK_IMPORTED_MODULE_1___default()("input[name='price']").val().replace(/ /g, ''));
+      formData.append('floor', jquery__WEBPACK_IMPORTED_MODULE_1___default()("input[name='floor']").val() ? jquery__WEBPACK_IMPORTED_MODULE_1___default()("input[name='floor']").val() : 1);
+      formData.append('description', jquery__WEBPACK_IMPORTED_MODULE_1___default()("#description").val() ? jquery__WEBPACK_IMPORTED_MODULE_1___default()("#description").val() : "");
+      fetchRoom(formData);
+      jquery__WEBPACK_IMPORTED_MODULE_1___default()('#roomCreator').modal('hide');
     }
   });
 });

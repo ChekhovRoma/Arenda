@@ -18,7 +18,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-1 col-md-3 col-lg-4"></div>
-                    <form class="row col-sm-10 col-md-6 col-lg-4 justify-content-center" method="post" enctype="multipart/form-data" action="{{ route('place.save') }}" >
+                    <form class="row col-sm-10 col-md-6 col-lg-4 justify-content-center" name="addPlace" method="post" enctype="multipart/form-data" action="{{ route('place.save') }}" >
                         <div class="form-group col-12 justify-content-center">
                             @csrf
                             <label for="name">Название помещения:</label>

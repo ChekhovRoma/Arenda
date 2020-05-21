@@ -28,8 +28,17 @@
                 </div>
                 <input type="hidden" value="{{ $schema->place_id }}" id="placeId">
                 <div class="modal-body">
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div><br />
+                    @endif
                     <div class="container align-content-center align-self-center">
-                        <form name="addRoom">
+                        <form name="addRoom" method="post" enctype="multipart/form-data">
                          @csrf
                         <div class="form-group row justify-content-md-center" id="settings">
                                 <div class="form-group col-12 justify-content-center">
@@ -50,7 +59,7 @@
                                 </div>
                                 <div class="form-group col-12">
                                     <label for="photos">Фото :</label>
-                                    <input type="file" class="form-control" name="photos[]" multiple />
+                                    <input id="photos" type="file" class="form-control" name="photos[]" multiple />
                                 </div>
                                 <button type="submit" id="roomFormSubmit" class="btn btn-primary ">Создать</button>
                         </div>

@@ -23,6 +23,8 @@
                 <button id="nextStage" class="btn btn-primary mt-2 col-12">Далее</button>
                 <button id="previousStage" class="btn btn-warning mt-2 col-12">Назад</button>
                 <button id="eraserBtn" class="btn btn-warning mt-2 col-12">Стерка</button>
+                <button id="createRoomBtn" class="btn btn-warning mt-2 col-12">Выделение комнат(сложна)</button>
+
 
                 <!--                    <a href="#" class="btn btn-info text-align-bottom mt-2 col-12" onclick="app.lines.activate(); return false;">Lines</a>-->
                 <!--                    <a href="#" onclick="app.rooms.activate(); return false;">Lines</a> <br>-->

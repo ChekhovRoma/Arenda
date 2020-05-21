@@ -32,7 +32,7 @@ Route::middleware('auth')->group(function (){
     Route::get('/myAds', 'AdController@getUserAds')->name('my-ads');
 
 
-    Route::get('/createPlace','PlaceController@addPlace');
+    Route::get('/createPlace','PlaceController@addPlace')->name('create');
     Route::post('/savePlace','PlaceController@savePlace')->name('place.save');
     Route::get('place/{id}', 'PlaceController@getPlace');
     Route::get('/editor/{id}', 'EditorController@index');
