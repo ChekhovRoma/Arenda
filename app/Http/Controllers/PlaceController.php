@@ -17,7 +17,6 @@ class PlaceController extends Controller
     {
         $place = Place::where('id',$id)
             ->get();
-
         return response(json_encode($place[0]));
     }
 

@@ -15,6 +15,7 @@ header( 'Access-Control-Allow-Headers: Authorization, Content-Type' );
 |
 */
 Route::get('form', 'FormController@create')->name('form.create');
+
 Route::post('form', 'FormController@store')->name('form.store');
 
 Route::get('/', 'AdController@getAllAds');
@@ -26,6 +27,7 @@ Route::get('/editor', 'EditorController@index');
 
 
 
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::middleware('auth')->group(function (){
@@ -33,6 +35,7 @@ Route::middleware('auth')->group(function (){
 
 
     Route::get('/createPlace','PlaceController@addPlace');
+
     Route::post('/savePlace','PlaceController@savePlace')->name('place.save');
     Route::get('place/{id}', 'PlaceController@getPlace');
 });
