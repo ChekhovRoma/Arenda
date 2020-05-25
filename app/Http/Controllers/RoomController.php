@@ -26,7 +26,11 @@ class RoomController extends Controller
     {
         $data = $request->post();
        //  $request->validated();
-        $room = new Room();
+        $room = Room::where('name', $data['name'])
+                      ->where('user_id', Auth::id())->first();
+        if (!$room){
+            $room = new Room();
+        }
         $room->name = $data['name'];
         $room->area = (float)$data['area'];
         $room->price = (float)$data['price'];
@@ -49,5 +53,15 @@ class RoomController extends Controller
 
         $room->save();
         return response(json_encode($room->name));
+    }
+
+    public function getIfExists (Request $request) {
+        $name = $request->post('name');
+        $room = Room::where('name', $name)
+                    ->where('user_id', Auth::id())->first();
+        if (!$room){
+            return response(json_encode(0));
+        }
+        return response(json_encode($room));
     }
 }

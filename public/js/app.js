@@ -51997,6 +51997,7 @@ jquery__WEBPACK_IMPORTED_MODULE_1___default()(document).ready(function () {
     var _this = this;
 
     if (jquery__WEBPACK_IMPORTED_MODULE_1___default()(this).attr('fill') === 'red') {
+      getInfoAboutRoom(jquery__WEBPACK_IMPORTED_MODULE_1___default()(this).attr('id'));
       jquery__WEBPACK_IMPORTED_MODULE_1___default()(this).attr('fill', 'yellow');
       name = jquery__WEBPACK_IMPORTED_MODULE_1___default()(this).attr('id');
       jquery__WEBPACK_IMPORTED_MODULE_1___default()('#roomCreator').modal('show');
@@ -52005,7 +52006,7 @@ jquery__WEBPACK_IMPORTED_MODULE_1___default()(document).ready(function () {
         readyRooms = jquery__WEBPACK_IMPORTED_MODULE_1___default()('path[fill="green"]').length;
 
         if (readyRooms === roomCounter) {
-          console.log('все готово');
+          jquery__WEBPACK_IMPORTED_MODULE_1___default()('#btnPosition').append('<button class="btn btn-primary justify-content-center" onclick=window.location.replace("/home");>Опубликовать!</button>');
         }
       });
     }
@@ -52014,8 +52015,7 @@ jquery__WEBPACK_IMPORTED_MODULE_1___default()(document).ready(function () {
 
 function fetchRoom(_x) {
   return _fetchRoom.apply(this, arguments);
-} // validation
-
+}
 
 function _fetchRoom() {
   _fetchRoom = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(data) {
@@ -52030,7 +52030,7 @@ function _fetchRoom() {
             }).then(function (response) {
               return response.json();
             }).then(function (body) {
-              console.log(body);
+              return body;
             });
 
           case 1:
@@ -52041,6 +52041,52 @@ function _fetchRoom() {
     }, _callee);
   }));
   return _fetchRoom.apply(this, arguments);
+}
+
+function getInfoAboutRoom(_x2) {
+  return _getInfoAboutRoom.apply(this, arguments);
+} // validation
+
+
+function _getInfoAboutRoom() {
+  _getInfoAboutRoom = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(id) {
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            return _context2.abrupt("return", fetch("/getInfoAboutRoom", {
+              crossDomain: true,
+              method: 'POST',
+              mode: 'cors',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                'name': id
+              })
+            }).then(function (response) {
+              return response.json();
+            }).then(function (body) {
+              if (body === 0) {
+                jquery__WEBPACK_IMPORTED_MODULE_1___default()("input[name='area']").val("");
+                jquery__WEBPACK_IMPORTED_MODULE_1___default()("input[name='price']").val("");
+                jquery__WEBPACK_IMPORTED_MODULE_1___default()("input[name='floor']").val("");
+              } else {
+                jquery__WEBPACK_IMPORTED_MODULE_1___default()("input[name='area']").val(body.area);
+                jquery__WEBPACK_IMPORTED_MODULE_1___default()("input[name='price']").val(body.price);
+                jquery__WEBPACK_IMPORTED_MODULE_1___default()("input[name='floor']").val(body.floor);
+                body.description ? jquery__WEBPACK_IMPORTED_MODULE_1___default()("#description").val(body.description) : jquery__WEBPACK_IMPORTED_MODULE_1___default()("#description").val("");
+              }
+            }));
+
+          case 1:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee2);
+  }));
+  return _getInfoAboutRoom.apply(this, arguments);
 }
 
 jquery__WEBPACK_IMPORTED_MODULE_1___default()(function () {

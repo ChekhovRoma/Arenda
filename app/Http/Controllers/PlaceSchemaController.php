@@ -15,9 +15,11 @@ class PlaceSchemaController extends Controller
             $schema = new PlaceSchema();
         }
         $schema->place_Id = $data['placeId'];
-        $schema->full_schema = $data['fullSchema'];
+        //$schema->full_schema = $data['fullSchema'];
         $schema->paths = $data['paths'];
         $schema->rooms = $data['rooms'];
+        $schema->doors = $data['doors'];
+        $schema->windows = $data['windows'];
         $schema->width = (float)$data['width'];
         $schema->height = (float)$data['height'];
         $schema->save();

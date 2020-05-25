@@ -10,6 +10,7 @@ $(document).ready(function () {
    rooms.attr('fill', 'red');
    rooms.click(function (event) {
       if ($(this).attr('fill') === 'red') {
+         getInfoAboutRoom($(this).attr('id'));
          $(this).attr('fill', 'yellow');
          name = $(this).attr('id');
          $('#roomCreator').modal('show');
@@ -17,7 +18,7 @@ $(document).ready(function () {
             $(this).attr('fill', 'green');
             readyRooms = $('path[fill="green"]').length;
             if (readyRooms === roomCounter) {
-               console.log('все готово');
+               $('#btnPosition').append('<button class="btn btn-primary justify-content-center" onclick=window.location.replace("/home");>Опубликовать!</button>');
             }
          });
       }
@@ -32,8 +33,38 @@ async function fetchRoom (data) {
    })
    .then(response => response.json())
    .then(body => {
-      console.log(body)
+      return body;
    })
+}
+
+async function getInfoAboutRoom (id) {
+   return fetch("/getInfoAboutRoom", {
+      crossDomain: true,
+      method: 'POST',
+      mode: 'cors',
+      headers: {
+         'Content-Type': 'application/json',
+      },
+
+      body: JSON.stringify({
+         'name': id,
+      })
+   })
+       .then(response => response.json())
+       .then(body => {
+          if (body === 0){
+             $("input[name='area']").val("");
+             $("input[name='price']").val("");
+             $("input[name='floor']").val("");
+          }
+          else {
+             $("input[name='area']").val(body.area);
+             $("input[name='price']").val(body.price);
+             $("input[name='floor']").val(body.floor);
+             body.description? $("#description").val(body.description) : $("#description").val("");
+
+          }
+       })
 }
 
 // validation

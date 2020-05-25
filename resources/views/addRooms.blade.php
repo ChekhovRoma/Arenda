@@ -10,16 +10,19 @@
     <!--        <button type="button" class="close" data-dismiss="alert" aria-label="Close">-->
     <!--            <span aria-hidden="true">&times;</span>-->
     <!--        </button>-->
-    <h4 id="helperText" class="align-center">Нажимайте на красные помещения, чтобы добавить информацию</h4>
+    <h4 id="helperText" class="align-center">Заполните информацию о всех помещениях, которые будут сданы в аренду.</h4>
 </div>
 
     <div class="container">
+        <div class="text-center" id="btnPosition">
+        </div>
         <div class="row justify-content-center">
             <div>
-                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width='750' height='750' viewBox="0,0,788.07813,720">
-{{--                {!! $schema->full_schema !!}--}}
-                {!! $schema->paths !!}
-                {!! $schema->rooms !!}
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width='720' height='720' viewBox="0,0,788.07813,720">
+                    {!! $schema->paths !!}
+                    @if ($schema->rooms) {!! $schema->rooms !!} @endif
+                    @if ($schema->doors) {!! $schema->doors !!} @endif
+                    @if ($schema->windows) {!! $schema->windows !!} @endif
                 </svg>
             </div>
         </div>

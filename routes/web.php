@@ -38,6 +38,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/editor/{id}', 'EditorController@index');
     Route::get('/addRooms/{id}', 'RoomController@addRooms');
     Route::post('/saveRoom', 'RoomController@saveRoom');
+    Route::post('/getInfoAboutRoom', 'RoomController@getIfExists');
 });
 Route::post('/filter', 'AdController@adScout')->name('filter');
 

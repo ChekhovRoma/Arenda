@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Редактор схемы</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
 
@@ -20,20 +21,22 @@
         <canvas class="col-lg-7 col-md-8 col-sm-12 border border-top-0" style="margin-left:50px; margin-top:10px" id="canvas" resize></canvas>
         <div class="col-lg-3 col-md-12 justify-content-right">
             <div class="row">
-                <button id="nextStage" class="btn btn-primary mt-2 col-12">Далее</button>
-                <button id="previousStage" class="btn btn-warning mt-2 col-12">Назад</button>
-                <button id="eraserBtn" class="btn btn-warning mt-2 col-12">Стерка</button>
-                <button id="createRoomBtn" class="btn btn-warning mt-2 col-12">Выделение комнат(сложна)</button>
+                <h2 class="text-center col-12 mb-5">Инструменты</h2>
+                <button id="wallBtn" class="btn btn-primary mt-2 col-12 ">Нарисовать стены</button>
+                <button id="createRoomBtn" class="btn btn-primary mt-3 col-12">Обозначить помещение</button>
+                <button id="windowBtn" class="btn btn-primary mt-3 col-5">Добавить окно</button>
+                <button id="doorBtn" class="btn btn-primary mt-3 col-6 offset-1">Добавить дверь</button>
+                <button id="eraserBtn" class="btn btn-warning mt-3 mb-5 col-12">Стерка</button>
 
 
                 <!--                    <a href="#" class="btn btn-info text-align-bottom mt-2 col-12" onclick="app.lines.activate(); return false;">Lines</a>-->
                 <!--                    <a href="#" onclick="app.rooms.activate(); return false;">Lines</a> <br>-->
-                <button id="postSchemaBtn" class="btn btn-success mt-5 col-12">Закончить</button>
+                <button id="postSchemaBtn" class="btn btn-success mt-5 mb-5 col-12">Закончить схему</button>
                 @if ($schema)
                     <input type="hidden" value="{{ $schema->id }}" id="schemaId">
                 @else
                     <input type="hidden" value="0" id="schemaId">
-                    <button id="deleteProgressBtn" class="btn btn-danger text-align-bottom mt-5 col-12">Новая схема</button>
+                    <button id="deleteProgressBtn" class="btn btn-danger text-align-bottom mt-5 col-12">Начать заново</button>
                 @endif
                 <input type="hidden" value="{{ $id }}" id="placeId">
 
