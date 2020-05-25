@@ -70,6 +70,7 @@
                                     </form>
                                 </div>
                             </li>
+                            <a href="{{route('create')}}" class="btn btn-primary text-white ml-2">Подать объявление</a>
                         @endguest
                     </ul>
                 </div>

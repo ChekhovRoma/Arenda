@@ -23,14 +23,27 @@
                 <button id="nextStage" class="btn btn-primary mt-2 col-12">Далее</button>
                 <button id="previousStage" class="btn btn-warning mt-2 col-12">Назад</button>
                 <button id="eraserBtn" class="btn btn-warning mt-2 col-12">Стерка</button>
-                <button id="postSchemaBtn" class="btn btn-warning mt-2 col-12">Сохранить в бд</button>
+                <button id="createRoomBtn" class="btn btn-warning mt-2 col-12">Выделение комнат(сложна)</button>
+
+
                 <!--                    <a href="#" class="btn btn-info text-align-bottom mt-2 col-12" onclick="app.lines.activate(); return false;">Lines</a>-->
                 <!--                    <a href="#" onclick="app.rooms.activate(); return false;">Lines</a> <br>-->
-                <button id="deleteProgressBtn" class="btn btn-danger text-align-bottom mt-5 col-12">Новая схема</button>
+                <button id="postSchemaBtn" class="btn btn-success mt-5 col-12">Закончить</button>
+                @if ($schema)
+                    <input type="hidden" value="{{ $schema->id }}" id="schemaId">
+                @else
+                    <input type="hidden" value="0" id="schemaId">
+                    <button id="deleteProgressBtn" class="btn btn-danger text-align-bottom mt-5 col-12">Новая схема</button>
+                @endif
+                <input type="hidden" value="{{ $id }}" id="placeId">
+
+
             </div>
         </div>
     </div>
 </div>
+
+
 
 
 <!-- Modal -->
@@ -58,7 +71,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header justify-content-center">
-                <h5 class="modal-title" id="staticBackdropLabel">Введите размеры помещения или Id</h5>
+                <h5 class="modal-title" id="staticBackdropLabel">Введите размеры помещения</h5>
             </div>
             <div class="modal-body">
                 <div class="container align-content-center align-self-center">
@@ -67,14 +80,11 @@
                         <input type="text" placeholder="Length" id="x" class="col-5 form-control mb-2">
                         <label for="y" class="col-form-label col-4">Высота, м</label>
                         <input type="text" placeholder="Width" id="y" class="col-5 form-control">
-                        <label for="placeId" class="col-form-label col-4">ID помещения</label>
-                        <input type="text" placeholder="ID" id="placeId" class="col-5 form-control">
                     </div>
                 </div>
             </div>
             <div class="modal-footer justify-content-center">
                 <button type="button" class="btn btn-primary" id="beginPainting">Создать</button>
-                <button type="button" class="btn btn-primary" id="loadSchema">Загрузить Схему</button>
             </div>
         </div>
     </div>

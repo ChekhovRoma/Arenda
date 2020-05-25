@@ -40,4 +40,12 @@ class User extends Authenticatable
     public function ads () {
         return $this->hasMany('App\Ad');
     }
+
+    public function places () {
+        return $this->hasMany('App\Place', 'owner_id');
+    }
+
+    public function rooms () {
+        return $this->hasMany('App\Rooms');
+    }
 }

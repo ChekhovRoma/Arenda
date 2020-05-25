@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 header('Access-Control-Allow-Origin: *');
-header( 'Access-Control-Allow-Headers: Authorization, Content-Type' );
+header('Access-Control-Allow-Headers: Authorization, Content-Type');
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,25 +23,23 @@ Route::get('/', 'AdController@getAllAds');
 Route::post('/fetchSchema', 'PlaceSchemaController@fetchSchema');
 Route::post('/getSchemaById', 'PlaceController@getSchemaById');
 
-Route::get('/editor', 'EditorController@index');
-
-
-
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::middleware('auth')->group(function (){
+Route::middleware('auth')->group(function () {
     Route::get('/myAds', 'AdController@getUserAds')->name('my-ads');
 
+    Route::get('/createPlace', 'PlaceController@addPlace');
 
-    Route::get('/createPlace','PlaceController@addPlace');
+    Route::get('/createPlace', 'PlaceController@addPlace')->name('create');
 
-    Route::post('/savePlace','PlaceController@savePlace')->name('place.save');
+    Route::post('/savePlace', 'PlaceController@savePlace')->name('place.save');
     Route::get('place/{id}', 'PlaceController@getPlace');
+    Route::get('/editor/{id}', 'EditorController@index');
+    Route::get('/addRooms/{id}', 'RoomController@addRooms');
+    Route::post('/saveRoom', 'RoomController@saveRoom');
 });
-Route::post('/filter', function (){
-    echo 'filter search';
-})->name('filter');
+Route::post('/filter', 'AdController@adScout')->name('filter');
 
 
 Route::get('/ad/{id}', function ($id) {
