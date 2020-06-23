@@ -19,7 +19,10 @@
         <div class="row justify-content-center">
             <div>
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width='720' height='720' viewBox="0,0,788.07813,720">
-                    {!! $schema->paths !!}
+                    @if ($schema->paths) {!! $schema->paths !!}
+                    @else
+                        <h2 class="align-center">Похоже, что схема к данному помещению не создана или не завершена</h2>
+                    @endif
                     @if ($schema->rooms) {!! $schema->rooms !!} @endif
                     @if ($schema->doors) {!! $schema->doors !!} @endif
                     @if ($schema->windows) {!! $schema->windows !!} @endif
@@ -77,5 +80,6 @@
         </div>
     </div>
 <script src="{{ asset('js/app.js') }}"></script>
+{{--<script src="{{ asset('js/rooms.js') }}"></script>--}}
 </body>
 </html>

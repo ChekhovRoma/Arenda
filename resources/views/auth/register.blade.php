@@ -74,4 +74,5 @@
         </div>
     </div>
 </div>
+<script src="{{ asset('js/rooms.js') }}"></script>
 @endsection

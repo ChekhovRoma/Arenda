@@ -23,6 +23,6 @@ class Place extends Model
     }
 
     public function schema () {
-        return $this->hasOne('App\PlaceSchema');
+        return $this->hasOne('App\PlaceSchema', 'place_id');
     }
 }

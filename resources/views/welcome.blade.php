@@ -3,7 +3,7 @@
 <div class="container-fluid">
         <form class="mb-3 p-3 border-0" method='post' action="{{route('filter')}}">
             <div class="row justify-content-center">
-                <select id="city" name='placeType' class="form-control col-2">
+                <select id="city" name='placeType' class="form-control col-md-2">
                     <option disabled selected>Тип помещения</option>
 {{--                    <option disabled selected>Тип помещения</option>--}}
 {{--                    <option value="Симферополь">ТЦ</option>--}}
@@ -13,21 +13,21 @@
                     @endforeach
 
                 </select>
-                <input type="text" name="name" class="col-3 form-control" placeholder="Поиск по объявлениям">
-                <input type="text" name="minPrice" class=" form-control col-1" placeholder="Цена min">
-                <input type="text" name="maxPrice" class="form-control col-1" placeholder="Цена max">
-                <select name="orderBy" class="form-control col-2">
+                <input type="text" name="name" class="col-md-3 form-control" placeholder="Поиск по объявлениям">
+                <input type="text" name="minPrice" class=" form-control col-md-1" placeholder="Цена min">
+                <input type="text" name="maxPrice" class="form-control col-md-1" placeholder="Цена max">
+                <select name="orderBy" class="form-control col-md-2">
                     <option value="">Сортировать</option>
                     <option value="pricesAscending">Цена по возрастанию</option>
                     <option value="pricesDescending">Цена по убыванию</option>
                 </select>
-                <select id="city" name='city' class="form-control col-2">
+                <select id="city" name='city' class="form-control col-md-2">
                     <option value="">Населенный пункт</option>
                     <option value="Симферополь">Симферополь</option>
                     <option value="Севастополь">Севастополь</option>
                     <option value="London">Лондон</option>
                 </select>
-                <input type="submit" value="Поиск"  class="btn btn-primary col-1">
+                <input type="submit" value="Поиск"  class="btn btn-primary col-md-1">
 {{--                <div class="col-1 dropdown">--}}
 {{--                    --}}
 {{--                    <div class="btn-group">--}}
