@@ -10,5 +10,7 @@
         @if ($schema->doors) {!! $schema->doors !!} @endif
         @if ($schema->windows) {!! $schema->windows !!} @endif
     </svg>
-    <p>{{$place->name}}</p>
+    <button id="example" type="button" class="btn btn-secondary" data-toggle="tooltip" data-html="true" title="<em>Tooltip</em> <u>with</u> <b>HTML</b>">
+        Tooltip with HTML
+    </button>
 @endsection

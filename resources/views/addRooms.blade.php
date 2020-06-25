@@ -52,15 +52,15 @@
                          @csrf
                         <div class="form-group row justify-content-md-center" id="settings">
                                 <div class="form-group col-12 justify-content-center">
-                                    <label for="name">Площадь в м2 <span style="color: red">*</span></label>
+                                    <label for="roomArea">Площадь в м2 <span style="color: red">*</span></label>
                                     <input id="roomArea" type="text" class="form-control" name="area" required />
                                 </div>
                                 <div class="form-group col-12">
-                                    <label for="address">Стоимость аренды (в месяц)<span style="color: red">*</span></label>
+                                    <label for="price">Стоимость аренды (в месяц)<span style="color: red">*</span></label>
                                     <input type="text" class="form-control " name="price" required id="price"/>
                                 </div>
                                 <div class="form-group col-12">
-                                    <label for="city">Этаж</label>
+                                    <label for="floor">Этаж</label>
                                     <input type="number" class="form-control " name="floor" id="floor"/>
                                 </div>
                                 <div class="form-group col-12">
@@ -79,7 +79,6 @@
             </div>
         </div>
     </div>
-<script src="{{ asset('js/app.js') }}"></script>
-{{--<script src="{{ asset('js/rooms.js') }}"></script>--}}
+<script src="{{ asset('js/room.js') }}"></script>
 </body>
 </html>

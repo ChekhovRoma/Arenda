@@ -5,7 +5,7 @@
  */
 
 require('./bootstrap');
-require('./rooms');
+require('./showPlaceInfo');
 window.Vue = require('vue');
 
 /**

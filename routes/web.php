@@ -42,6 +42,7 @@ Route::middleware('auth')->group(function () {
     Route::get('place/{id}', 'PlaceController@getPlace');
     Route::get('/editor/{id}', 'EditorController@index');
     Route::get('/addRooms/{id}', 'RoomController@addRooms');
+    Route::post('/addRooms/{id}', 'RoomController@addRooms');
     Route::post('/saveRoom', 'RoomController@saveRoom');
     Route::post('/getInfoAboutRoom', 'RoomController@getIfExists');
 });
