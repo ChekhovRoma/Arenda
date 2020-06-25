@@ -52071,6 +52071,7 @@ function _getInfoAboutRoom() {
                 jquery__WEBPACK_IMPORTED_MODULE_1___default()("input[name='area']").val("");
                 jquery__WEBPACK_IMPORTED_MODULE_1___default()("input[name='price']").val("");
                 jquery__WEBPACK_IMPORTED_MODULE_1___default()("input[name='floor']").val("");
+                jquery__WEBPACK_IMPORTED_MODULE_1___default()("#description").val("");
               } else {
                 jquery__WEBPACK_IMPORTED_MODULE_1___default()("input[name='area']").val(body.area);
                 jquery__WEBPACK_IMPORTED_MODULE_1___default()("input[name='price']").val(body.price);

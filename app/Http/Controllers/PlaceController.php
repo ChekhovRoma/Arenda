@@ -16,9 +16,12 @@ class PlaceController extends Controller
 
     public function getPlace($id)
     {
-        $place = Place::where('id',$id)
-            ->get();
-        return response(json_encode($place[0]));
+        $place = Place::find($id);
+        if (!$place) {
+            abort(404, 'Not found');
+        }
+        $schema = PlaceSchema::where('place_id', $id)->first();
+        return view('place', compact('place', 'schema'));
     }
 
     public function getSchemaById (Request $request) // убрать в плейссхема контроллер?

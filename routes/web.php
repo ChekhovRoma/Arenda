@@ -52,4 +52,6 @@ Route::get('/ad/{id}', function ($id) {
     echo $id;
 });
 
+Route::get('/place/{id}', 'PlaceController@getPlace');
+
 Auth::routes();

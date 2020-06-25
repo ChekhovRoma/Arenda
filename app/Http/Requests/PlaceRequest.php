@@ -38,7 +38,7 @@ class PlaceRequest extends FormRequest
     public function messages()
     {
         return [
-            'email.email'=>'sosi'
+            'email.email'=>'Incorrect Email'
         ];
     }
 }

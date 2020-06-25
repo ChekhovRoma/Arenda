@@ -58,21 +58,5 @@ class AdController extends Controller
 
             return AdScout::find($filters);
         }
-
-
-//        $city = 'Севастополь';
-//        $price = 100;
-//
-//
-//        $ads = Ad::query();
-//
-//        $ads->join('rooms', 'ads.room_id', '=', 'rooms.id');
-//        $ads->join('places', 'rooms.place_id', '=', 'places.id');
-//
-//        $ads->where('places.city', '=', $city);
-//        $ads->where('rooms.price', '>', $price);
-//
-//
-//        return $ads->get();
     }
 }
