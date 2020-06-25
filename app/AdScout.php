@@ -41,6 +41,6 @@ class AdScout extends Model
 
         $ads->where('ads.status_id', '=', 1);
 
-        return $ads->get();
+        return $ads;
     }
 }

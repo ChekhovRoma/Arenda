@@ -12,16 +12,32 @@ use Illuminate\View\View;
 
 class AdController extends Controller
 {
-    public function getAllAds()
+    public function getAllAds(Request $request)
     {
-        $ads = Ad::paginate(2);
+
+            $filters = $request->all();
+            $ads = AdScout::find($filters)->paginate(3);
+
         $placeTypes = PlaceType::all();
 
         return view('welcome', compact(
             ['placeTypes', $placeTypes,
                 'ads', $ads,
-
             ]));
+    }
+
+    public function filterAds()
+    {
+        $filters = $_POST;
+
+        return redirect()->route('main', [
+            'city' => $filters['city'],
+            'name' => $filters['name'],
+            'placeType' => $filters['placeType'],
+            'minPrice' => $filters['minPrice'],
+            'maxPrice' => $filters['maxPrice'],
+            'orderBy' => $filters['orderBy']
+        ]);
     }
 
     public function getUserAds()
@@ -36,13 +52,11 @@ class AdController extends Controller
     {
 
         if (!empty($_POST)) {
-            var_dump($_POST);
+
 
             $filters = $_POST;
 
-            $result = '<p>' . AdScout::find($filters) . '</p>';
-
-            return $result;
+            return AdScout::find($filters);
         }
 
 

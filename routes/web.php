@@ -16,9 +16,14 @@ header('Access-Control-Allow-Headers: Authorization, Content-Type');
 */
 Route::get('form', 'FormController@create')->name('form.create');
 
+Route::post('users','FormController@getUsers');
+
+Route::post('api-token-auth', 'FormController@authUser');
+
 Route::post('form', 'FormController@store')->name('form.store');
 
-Route::get('/', 'AdController@getAllAds');
+Route::get('/', 'AdController@getAllAds')->name('main');
+Route::post('/', 'AdController@filterAds')->name('filterAds');
 
 Route::post('/fetchSchema', 'PlaceSchemaController@fetchSchema');
 Route::post('/getSchemaById', 'PlaceController@getSchemaById');
