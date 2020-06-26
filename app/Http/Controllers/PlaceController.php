@@ -27,7 +27,7 @@ class PlaceController extends Controller
         return view('place', compact('place', 'schema', 'user'));
     }
 
-    public function getSchemaById (Request $request) // убрать в плейссхема контроллер?
+    public function getSchemaById (Request $request) //
     {
         $placeId = $request->post('placeId');
 
