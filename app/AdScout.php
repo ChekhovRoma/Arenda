@@ -10,7 +10,7 @@ class AdScout extends Model
 {
     public static function find($filters)
     {
-        $ads = Ad::query();
+        $ads = Ad::query()->select('ads.*');
 
         $ads->join('rooms', 'ads.room_id', '=', 'rooms.id');
         $ads->join('places', 'rooms.place_id', '=', 'places.id');

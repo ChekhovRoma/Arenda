@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Ad;
 use App\Communication;
 use App\Http\Requests\RoomRequest;
 use App\Room;
@@ -52,6 +53,15 @@ class RoomController extends Controller
         }
 
         $room->save();
+
+        $ad = new Ad();
+        $ad->status_id = 1;
+        $ad->room_id = $room->id;
+        $ad->user_id = Auth::id();
+        $ad->published_at = date('Y-m-d H:i:s');
+        $ad->unpublished_at = date('Y-m-d H:i:s');
+        $ad->save();
+
         return response(json_encode($room->name));
     }
 

@@ -49,9 +49,7 @@ Route::middleware('auth')->group(function () {
 Route::post('/filter', 'AdController@adScout')->name('filter');
 
 
-Route::get('/ad/{id}', function ($id) {
-    echo $id;
-});
+Route::get('/ad/{id}', 'AdController@getAd');
 
 Route::get('/place/{id}', 'PlaceController@getPlace');
 
