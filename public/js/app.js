@@ -50323,6 +50323,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 
+var info;
 var name;
 jquery__WEBPACK_IMPORTED_MODULE_1___default()(document).ready(function () {
   var svg = jquery__WEBPACK_IMPORTED_MODULE_1___default()('svg')[0];
@@ -50332,7 +50333,7 @@ jquery__WEBPACK_IMPORTED_MODULE_1___default()(document).ready(function () {
   console.log(svg);
   var rooms = jquery__WEBPACK_IMPORTED_MODULE_1___default()('path[id^=room]');
   rooms.hover( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-    var info, _info$description;
+    var _info$description;
 
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
       while (1) {
@@ -50350,7 +50351,7 @@ jquery__WEBPACK_IMPORTED_MODULE_1___default()(document).ready(function () {
                 html: true,
                 trigger: 'hover',
                 placement: 'bottom',
-                title: "<ul><li>\u041F\u043B\u043E\u0449\u0430\u0434\u044C: ".concat(info.area, " \u043C\xB2</li><li>\u0426\u0435\u043D\u0430: ").concat(info.price, " \u0440\u0443\u0431\u043B\u0435\u0439</li><li>\u042D\u0442\u0430\u0436: ").concat(info.floor, "</li><li>\u041E \u043F\u043E\u043C\u0435\u0449\u0435\u043D\u0438\u0438: ").concat((_info$description = info.description) !== null && _info$description !== void 0 ? _info$description : '', "</li></ul>")
+                title: "<ul><li>\u041D\u0430\u0438\u043C\u0435\u043D\u043E\u0432\u0430\u043D\u0438\u0435: ".concat(info.alias, "</li><li>\u041F\u043B\u043E\u0449\u0430\u0434\u044C: ").concat(info.area, " \u043C\xB2</li><li>\u0426\u0435\u043D\u0430: ").concat(info.price, " \u0440\u0443\u0431\u043B\u0435\u0439</li><li>\u042D\u0442\u0430\u0436: ").concat(info.floor, "</li><li>\u041E \u043F\u043E\u043C\u0435\u0449\u0435\u043D\u0438\u0438: ").concat((_info$description = info.description) !== null && _info$description !== void 0 ? _info$description : '', "</li></ul>")
               });
             }
 
@@ -50369,6 +50370,11 @@ jquery__WEBPACK_IMPORTED_MODULE_1___default()(document).ready(function () {
       }
     }, _callee, this);
   })));
+  rooms.click(function () {
+    if (info.id) {
+      window.location.href = "/ad/" + info.id;
+    }
+  });
 });
 
 function getInfoAboutRoom(_x) {
