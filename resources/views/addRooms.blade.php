@@ -52,6 +52,10 @@
                          @csrf
                         <div class="form-group row justify-content-md-center" id="settings">
                                 <div class="form-group col-12 justify-content-center">
+                                    <label for="alias">Наименование помещения<span style="color: red">*</span></label>
+                                    <input id="alias" type="text" class="form-control" name="alias" required />
+                                </div>
+                                <div class="form-group col-12 justify-content-center">
                                     <label for="roomArea">Площадь в м2 <span style="color: red">*</span></label>
                                     <input id="roomArea" type="text" class="form-control" name="area" required />
                                 </div>

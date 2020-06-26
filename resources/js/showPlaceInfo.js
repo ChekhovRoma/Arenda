@@ -1,5 +1,5 @@
 import $ from 'jquery';
-
+let info;
 let name;
 $(document).ready(function () {
     let svg = $('svg')[0];
@@ -10,13 +10,13 @@ $(document).ready(function () {
     let rooms = $('path[id^=room]');
     rooms.hover(async function () {
         name = $(this).attr('id');
-        let info = await getInfoAboutRoom(name);
+        info = await getInfoAboutRoom(name);
         if (info) {
             $(this).popover({
                 html: true,
                 trigger: 'hover',
                 placement: 'bottom',
-                title: `<ul><li>Площадь: ${info.area} м²</li><li>Цена: ${info.price} рублей</li><li>Этаж: ${info.floor}</li><li>О помещении: ${info.description?? ''}</li></ul>`,
+                title: `<ul><li>Наименование: ${info.alias}</li><li>Площадь: ${info.area} м²</li><li>Цена: ${info.price} рублей</li><li>Этаж: ${info.floor}</li><li>О помещении: ${info.description?? ''}</li></ul>`,
             });
         }
         $(this).on('hide.bs.popover', function () {
@@ -27,7 +27,11 @@ $(document).ready(function () {
             $(this).attr('fill', '#86eb34');
         });
     });
-    
+    rooms.click(function () {
+       if (info.id) {
+           window.location.href = "/ad/"+info.id;
+       }
+    });
 });
 
 async function getInfoAboutRoom(id) {

@@ -38,6 +38,7 @@ class RoomController extends Controller
         $room->place_id = (integer)$data['placeId'];
         $room->floor =   (integer) $data['floor'];
         $room->description = $data['description'];
+        $room->alias = $data['alias'];
 
         if($request->file('photos')){
             $photos = [];
