@@ -25,6 +25,8 @@ Route::post('form', 'FormController@store')->name('form.store');
 Route::get('/', 'AdController@getAllAds')->name('main');
 Route::post('/', 'AdController@filterAds')->name('filterAds');
 
+Route::get('/places', 'PlaceController@getAllPlaces')->name('places');
+
 Route::post('/fetchSchema', 'PlaceSchemaController@fetchSchema');
 Route::post('/getSchemaById', 'PlaceController@getSchemaById');
 

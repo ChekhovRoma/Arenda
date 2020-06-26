@@ -27,7 +27,15 @@ class PlaceController extends Controller
         return view('place', compact('place', 'schema', 'user'));
     }
 
-    public function getSchemaById (Request $request) //
+    public function getAllPlaces()
+    {
+        $places = Place::paginate(7);
+
+
+        return view('places', compact('places'));
+    }
+
+    public function getSchemaById (Request $request)
     {
         $placeId = $request->post('placeId');
 

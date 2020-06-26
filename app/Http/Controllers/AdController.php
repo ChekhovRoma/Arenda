@@ -30,7 +30,7 @@ class AdController extends Controller
 
             $ads = AdScout::find($filters)->paginate(3);
 
-            $testAs = Ad::all();
+
 
         $placeTypes = PlaceType::all();
 
