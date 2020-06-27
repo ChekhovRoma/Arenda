@@ -17,4 +17,9 @@ class Room extends Model
     public function communications () {
         return $this->belongsToMany('App\Communications');
     }
+
+    public function ad()
+    {
+        return $this->hasOne('App\Ad', 'room_id');
+    }
 }

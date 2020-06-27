@@ -47,7 +47,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <h1>
-                        {{$ad->room->name}}, {{$ad->room->area}} м², {{$ad->room->floor}} эт.
+                        {{$ad->room->alias}}, {{$ad->room->area}} м², {{$ad->room->floor}} эт.
                     </h1>
                 </div>
                 <div class="col-md-6">

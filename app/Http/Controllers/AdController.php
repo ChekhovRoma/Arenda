@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\AdScout;
 use App\PlaceType;
+use App\Room;
 use App\User;
 use App\Ad;
 use Illuminate\Http\Request;
@@ -14,9 +15,10 @@ class AdController extends Controller
 {
     public function getAd($id)
     {
-        $ad = Ad::where(['id' => $id])->first();
+        /** @var Room $room */
+        $room = Room::find($id);
         $placeTypes = PlaceType::all();
-
+        $ad = $room->ad()->first();
         return view('ad', compact(
             [
                 'placeTypes', $placeTypes,

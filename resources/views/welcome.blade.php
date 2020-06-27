@@ -53,7 +53,7 @@
                         @php $img = json_decode($ad->room->photos) @endphp
                         <img style="width: 18rem;" class="card-img col-sm-12 col-md-4" src="{{ asset('images/room_photos/' . $img[0] )}}" alt="{{$ad->room->place->name}}">
                         <div class="row col-sm-12 col-md-8 ">
-                            <a href="/ad/{{$ad->id}}" class="card-title col-md-12 stretched-link h4">{{$ad->room->alias}}</a>
+                            <a href="/ad/{{$ad->room->id}}" class="card-title col-md-12 stretched-link h4">{{$ad->room->alias}}</a>
                             <p class="card-text col-md-12">{{$ad->room->description}}</p>
                             <p class="card-text col-md-12">Цена в месяц: {{$ad->room->price}}</p>
                             <p class="card-text col-md-12">Площадь: {{$ad->room->area}}</p>
